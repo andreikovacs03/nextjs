@@ -12,15 +12,29 @@ const arrow = {
 
 type RefreshProps = { onClick: () => void };
 
-export const Refresh = ({ onClick }: RefreshProps) => {
+const BasicRefresh = ({ onClick }: RefreshProps) => {
   return (
     <motion.div
-      className="refresh"
       onClick={onClick}
       variants={button}
       initial="rest"
       whileHover="hover"
       whileTap="pressed"
+      style={{
+        padding: 10,
+        position: 'absolute',
+        background: 'rgba(0, 0, 0, 0.4)',
+        borderRadius: 10,
+        width: 20,
+        height: 20,
+        top: 10,
+        right: 10,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        cursor: 'pointer',
+        boxSizing: 'content-box',
+      }}
     >
       <motion.svg
         width="16"
@@ -37,3 +51,5 @@ export const Refresh = ({ onClick }: RefreshProps) => {
     </motion.div>
   );
 };
+
+export default BasicRefresh;

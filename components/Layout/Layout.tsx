@@ -9,10 +9,10 @@ type Props = {
 
 export const Layout = ({ children }: Props) => {
   return (
-    <Box>
+    <Box width="100%" height="100%" display="flex" flexDirection="column">
       <Navbar />
 
-      <main>{children}</main>
+      <main style={{ width: '100%', flexGrow: 1 }}>{children}</main>
     </Box>
   );
 };
