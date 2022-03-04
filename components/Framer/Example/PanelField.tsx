@@ -1,5 +1,5 @@
 import { Box, Slider, TextField, Typography } from '@mui/material';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 type Props = {
   title: string;
@@ -18,8 +18,8 @@ export const PanelField = ({
 }: Props) => {
   const [value, setValue] = useState<number>(initialValue);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value as number);
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(parseInt(event.target.value));
   };
 
   const handleSliderChange = (event: Event, newValue: number | number[]) => {
@@ -39,7 +39,7 @@ export const PanelField = ({
       <TextField
         value={value}
         type="number"
-        inputProps={{ inputMode: 'numeric', shrink: true }}
+        inputProps={{ inputMode: 'numeric' }}
         onChange={handleInputChange}
         sx={{ flex: '2 1', m: '0 1.1rem', maxWidth: '5rem' }}
       ></TextField>
